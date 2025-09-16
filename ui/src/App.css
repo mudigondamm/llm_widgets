@@ -1,0 +1,244 @@
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  gap: 25px; /* Space between columns */
+  max-width: 1200px; /* Adjust as needed */
+  width: 100%;
+  padding: 25px;
+  background-color: white; /* Main container background */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.widgets-column {
+  flex: 1; /* Takes one part of the available space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chat-column {
+  flex: 1.5; /* Takes more space for the chat, adjust ratio as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.tile {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+  min-height: 200px; /* Ensure a consistent tile size */
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+}
+
+.tile.blue {
+  background-color: #e3f2fd; /* Lighter blue */
+  color: #1565c0; /* Darker blue text */
+}
+
+.tile.green {
+  background-color: #e8f5e9; /* Lighter green */
+  color: #2e7d32; /* Darker green text */
+}
+
+h3 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #c0c0c0;
+  margin-bottom: 15px;
+  background-color: white;
+  font-size: 1em;
+  color: #333;
+  -webkit-appearance: none; /* Remove default arrow */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%20197.97c-3.23%203.23-7.53%204.85-11.83%204.85s-8.6-1.62-11.83-4.85L146.2%2079.03%2029.07%20197.97c-3.23%203.23-7.53%204.85-11.83%204.85s-8.6-1.62-11.83-4.85c-6.5-6.5-6.5-17.07%200-23.57L134.37%2050.62c6.5-6.5%2017.07-6.5%2023.57%200L287%20174.4c6.5%206.5%206.5%2017.07%200%2023.57z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+  padding-right: 30px; /* Make space for the custom arrow */
+}
+
+.info {
+  margin-top: auto; /* Push info to the bottom if content is short */
+  font-size: 1.1em;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.info .temp, .info .price {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #000000; /* Darker for emphasis */
+}
+
+.info .description, .info .change {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.pokemon-info img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.pokemon-name {
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+.pokemon-type {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Chat Interface Styling */
+.chat-interface {
+  flex: 1; /* Takes all available vertical space in its column */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fcfcfc;
+  border: 1px solid #e0e0e0;
+}
+
+.chat-input-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px; /* Add space below the input form */
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* For scrollbar spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 85%;
+  word-wrap: break-word;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.chat-message.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.chat-message.bot {
+  background-color: #e9ecef;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.typing-indicator {
+  background-color: #e9ecef;
+  color: #666;
+  font-style: italic;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chat-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  .widgets-column, .chat-column {
+    flex: none; /* Remove flex basis on smaller screens */
+    width: 100%;
+  }
+}
